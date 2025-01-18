@@ -1,0 +1,432 @@
+
+
+
+   /* Navbar styling */
+*{
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+.navbar {
+  background-color: darkslateblue;
+}
+.navbar-nav{
+  margin-left: 20%;
+}
+.navbar-nav .nav-link {
+  color: white !important;
+   font-weight: 500;
+  margin-right: 15px;
+  /* border: 2px solid; */
+}
+.navbar-nav .nav-link:hover {
+  text-decoration: underline;
+}
+.btn-outline-light {
+  color: #ff8800;
+  border-color: #ff8800;
+}
+.btn-outline-light:hover {
+  background-color: #ff8800;
+  color: white;
+}
+/* Custom container width */
+.container {
+  max-width: 1318px !important;
+}
+.navbar-brand{
+  padding-left: 5%;
+}
+/* -------------------------------------------------------------------------------------------------- */
+/* h1, h2, h3 {
+  color: #2b6777;
+} */
+
+p {
+  line-height: 1.8;
+  margin-bottom: 1.5em;
+} 
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+  /* background-image: url('https://www.jadeglobal.com/sites/default/files/2022-09/How-Cloud-Computing-Can-Provide-Competitive-Advantage-for-Scientific-and-Industrial-Computation.jpg'); */
+
+background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAACUCAMAAABV5TcGAAAAA1BMVEUAzP/tN0oVAAAAPklEQVR4nO3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgIcBnKwAAXyxvCsAAAAASUVORK5CYII=");
+  background-position: center;
+  color: #fff;
+  padding: 4em 1em;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+  /* margin-top: 1%; */
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero p {
+  font-size: 1.2em;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mission Section */
+.our-mission {
+  background: linear-gradient(120deg, #e7e5e5, #f0f4f7);
+  padding: 3em 1em;
+  text-align: center;
+  border-radius: 15px;
+  margin: -3em 1em 3em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.our-mission h2 {
+  margin-bottom: 1em;
+}
+/* ----------------------------our solutions-------------------------------------------------------- */
+.our-solutions {
+  /* background-image: url('https://webgradients.com/public/webgradients_png/030%20Happy%20Fisher.png'); */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 3em 1em;
+  position: relative;
+  background-color: skyblue;
+}
+
+.our-solutions::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.6); */
+  z-index: 0;
+}
+
+.our-solutions h2 {
+  text-align: center;
+  margin-bottom: 2em;
+  position: relative;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+.solutions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2em;
+  position: relative;
+  z-index: 1;
+}
+
+.solution {
+  background: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.solution:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.solution h3 {
+  margin-bottom: 0.5em;
+  color: #4e9f3d;
+}
+
+.solution p {
+  color: #555;
+}
+/* --------------------------------------------------------------------------------- */
+
+.why-us {
+  background-color: rgb(248, 230, 196);
+  /* background-color: #f5f5f5; */
+  padding: 30px 0;
+  text-align: center;
+  /* border: 2px solid; */
+
+}
+
+.why-us h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.why-us-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 30px 0;
+  font-size: 1rem;
+}
+
+.why-us-text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.why-us-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+.why-us-text ul {
+  margin-top: 15px;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.why-us-text ul li {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.why-us-image {
+  flex: 1;
+  text-align: center;
+}
+
+.why-us-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.why-us-icons {
+  margin-top: 30px;
+}
+
+.why-us-icons img {
+  width: 50px;
+  margin: 0 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.why-us-icons img:hover {
+  transform: scale(1.1);
+}
+.accordion {
+  list-style: none;
+  padding: 0;
+}
+
+.accordion li {
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: white;
+  /* background-color: #f9f9f9; */
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.accordion li:hover {
+  background-color: #e9e9e9;
+}
+
+.accordion-title {
+  padding: 15px;
+  font-weight: bold;
+  color: #333;
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding: 0 15px;
+  background-color: #fff;
+}
+
+.accordion-content p {
+  margin: 15px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Active class for open accordion */
+.accordion li.active .accordion-content {
+  max-height: 150px; /* Adjust this value based on content size */
+}
+
+.accordion li.active .accordion-title {
+  color: #007BFF; /* Highlight active title */
+}
+
+.accordion-title .bx-plus{
+  font-size: 20px;
+  transition: transform 0.3s ease;
+  /* padding-left: 95%; */
+  /* padding-bottom: 10px; */
+}
+
+.accordion-item.open .accordion-title .bx-plus{
+  transform: rotate(45deg); /* Rotate the plus icon to indicate the section is open */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+ 
+  .why-us h2{
+  font-size: 2rem;
+  }
+  .why-us-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .why-us-text {
+      padding: 5;
+  }
+
+  .why-us-icons img {
+      width: 40px;
+      margin: 10px;
+  }
+}
+
+/* -------------------------footer--------------------------------------- */
+footer {
+  background-color: #2C3E50;
+  /* background-color: darkslateblue; */
+  color: #ECF0F1;
+  font-family: 'Arial', sans-serif;
+  padding: 60px 0;
+}
+
+/* Footer Container */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* Column Styles */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #ECF0F1;
+}
+
+.footer-column p {
+  font-size: 16px;
+  color: #BDC3C7;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 5px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #BDC3C7;
+}
+
+.footer-column ul li a:hover {
+  color: #3498DB;
+}
+
+/* Social Media Icons */
+.social-icons-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icon {
+  color: #ECF0F1;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #3498DB;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #34495E;
+  font-size: 14px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #BDC3C7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .footer-container {
+      grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+  }
+
+  .footer-column {
+      margin-bottom: 30px;
+  }
+
+  .social-icons-container {
+      justify-content: center;
+  }
+}
+.background {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color:darkslateblue; /* Dark blue color */
+  overflow: hidden;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: #8dc63f; 
+  /* Green color */
+  clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+}

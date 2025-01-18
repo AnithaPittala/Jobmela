@@ -1,0 +1,184 @@
+/* nav */
+/* Navbar styling */
+.navbar {
+    background-color: darkslateblue;
+  }
+  .navbar-nav .nav-link {
+    color: white !important;
+    margin-right: 15px;
+  }
+  .navbar-nav .nav-link:hover {
+    text-decoration: underline;
+  }
+  .btn-outline-light {
+    color: #ff8800;
+    border-color: #ff8800;
+  }
+  .btn-outline-light:hover {
+    background-color: #ff8800;
+    color: white;
+  }
+  /* Custom container width */
+  .container {
+    max-width: 1318px !important;
+  }
+  /* nav */
+  
+  /* General Styles */
+  body{
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #fff;
+  
+      line-height: 1.6;
+    }
+    
+    header {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(90deg, #4CAF50, #007bff);
+      color: white;
+      /* border: 2px solid black; */
+    }
+    
+    header h1 {
+      font-size: 2.8em;
+      margin: 0;
+    }
+    
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2em;
+    }
+    
+    /* Section Styling */
+    .section {
+      padding: 30px;
+      /* margin: 20px auto; */
+      border-radius: 8px;
+      color: #333;
+      /* border: 2px solid; */
+      background-color: #d8e5f4;
+    }
+    
+    .section-alt {
+      padding: 30px;
+      margin: 0px auto;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 8px;
+      color: #fff;
+    }
+    
+    /* Background Image Styling */
+    .background-image {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #efe9e9;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+      position: relative;
+      /* border: 2px solid red; */
+     
+    }
+    
+    .background-image .overlay {
+      /* background: rgba(0, 0, 0, 0.5); */
+      background: rgba(224, 213, 213, 0.5);
+      padding: 30px;
+      border-radius: 8px;
+      
+      
+    }
+    .overlay h2{
+      color: black;
+    }
+    .overlay p{
+      color: black;
+    }
+    
+    /* Branding Section */
+    .branding-logo {
+      max-width: 100px;
+      display: block;
+      margin: 10px auto;
+    }
+   
+    /* Form Styling */
+    form label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    
+    form input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+    
+    form button {
+      background: #007bff;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    
+    form button:hover {
+      background: #0056b3;
+    }
+    
+    /* Card Grid (Interview Section) */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .card {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      color: #333;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    
+    .card h3 {
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+    
+    /* Action Button */
+    .action-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .action-button:hover {
+      background-color: #3a9140;
+    }
+    
+    /* Feedback Message */
+    #feedback-message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }

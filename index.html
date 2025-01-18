@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Styled Navbar</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    /* Navbar styling */
+    .navbar {
+      background-color: darkslateblue;
+    }
+    .navbar-nav .nav-link {
+      color: white !important;
+      margin-right: 15px;
+    }
+    .navbar-nav .nav-link:hover {
+      text-decoration: underline;
+    }
+    .btn-outline-light {
+      color: #ff8800;
+      border-color: #ff8800;
+    }
+    .btn-outline-light:hover {
+      background-color: #ff8800;
+      color: white;
+    }
+    /* Custom container width */
+    .container {
+      max-width: 1318px !important;
+    }
+    .email-navbar {
+      background-color: antiquewhite;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .email-navbar p {
+      margin: 0;
+      padding: 10px 20px;
+      animation: move 30s linear infinite;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Hero Section */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      padding: 11px;
+      background-color: #f4f4f4;
+    }
+
+    /* Slider Container - Left Side */
+    .slider-container {
+      width: 65%;
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .slider {
+      position: relative;
+      height: 485px;
+      overflow: hidden;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      background-color: #444;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slider .slide:nth-child(1) {
+      animation: slideAnimation 6s infinite;
+    }
+
+    .slider .slide:nth-child(2) {
+      animation: slideAnimation 6s infinite 2s;
+    }
+
+    .slider .slide:nth-child(3) {
+      animation: slideAnimation 6s infinite 4s;
+    }
+
+    @keyframes slideAnimation {
+      0%, 100% {
+        opacity: 0;
+      }
+      30%, 70% {
+        opacity: 1;
+      }
+    }
+
+    /* Job Alert Notification - Right Side */
+    .job-alert-container {
+      /* width: 45%;
+      background-color: #444; */
+      height: 512px;
+    width: 382px;
+      /* padding: 20px; */
+      border-radius: 10px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      /* align-items: center; */
+    }
+
+    .job-alert {
+      font-size: 18px;
+      background-color: darkslateblue;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 80%;
+      margin-bottom: 20px;
+    }
+
+    .btn-more-details {
+      background-color: rgb(143, 22, 107);
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .btn-more-details:hover {
+      background-color: #a02470;
+    }
+
+    @keyframes moveAlert {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .slider-container {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .job-alert-container {
+        margin-left: 19px;
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .navbar-nav .nav-item {
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Smaller screens styling */
+    @media (max-width: 576px) {
+      .email-navbar p {
+        font-size: 12px;
+        padding: 5px;
+      }
+
+      .btn-more-details {
+        font-size: 14px;
+      }
+    }
+    .job-alert-scroll {
+      display: flex;
+      flex-direction: column;
+      gap: 20px; /* Space between job alerts */
+    }
+
+    .background {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background-color:darkslateblue; /* Dark blue color */
+      overflow: hidden;
+    }
+
+    .background::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: #8dc63f; 
+      /* Green color */
+      clip-path: polygon(0 0, 100% 0, 75% 100%, 0 100%);
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container" style="font-size: larger;     margin-left: 7%;
+    font-weight: bolder;">
+      <a class="navbar-brand" href="#"><img src="jobfair1_logo_darkslateblue.png" alt="jobmela" style="  height: 64px;
+    width: 116px;"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 12%;">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./About Us/index.html">About Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="./organisation/index.html" id="organisationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Organisations
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="organisationsDropdown">
+              <li><a class="dropdown-item" href="./organisation/index.html">Organisation 1</a></li>
+              <li><a class="dropdown-item" href="./org2/index.html">Organisation 2</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Org 3</a></li> -->
+            </ul>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#">Act & Rules</a>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="rtiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              RTI
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="rtiDropdown">
+              <li><a class="dropdown-item" href="#">RTI Info 1</a></li>
+              <li><a class="dropdown-item" href="#">RTI Info 2</a></li>
+            </ul>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link" href="./jobmela inf/index.html">Job Mela Info</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="usefulLinksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Events
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+              <li><a class="dropdown-item" href="./jobfaircm/jobfair.html">Job Fair 2024</a></li>
+              <li><a class="dropdown-item" href="./upcomingjb/index.html">Upcoming Jobmela</a></li>
+              <!-- <li><a class="dropdown-item" href="./upnext/index.html">Further planning</a></li> -->
+          </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="contactUsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Contact Us
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="contactUsDropdown">
+              <li><a class="dropdown-item" href="./contactus/index.html">Contact Info 1</a></li>
+              <!-- <li><a class="dropdown-item" href="#">Contact Info 2</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <!-- <li class="nav-item dropdown" style="list-style: none;color: white;">
+          <a class="nav-link dropdown-toggle" href="#" id="usefulLinksDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           Online Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="usefulLinksDropdown">
+            <li><a class="dropdown-item" href="#">login</a></li>
+            <li><a class="dropdown-item" href="#">Link 2</a></li>
+          </ul>
+        </li> -->
+      </div>
+    </div>
+  </nav>
+
+  <!-- <div class="email-navbar">
+    <p>Contact us at: info@Credencer.com | Job Alerts: Stay updated on new job opportunities</p>
+  </div> -->
+
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide"><img src="./hero11.jpg" alt="" > Welcome to Jobmela</div>
+        <div class="slide"><img src="./image22.jpg" alt=""> Find your dream job</div>
+        <div class="slide"><img src="./w006yrii.png" alt=""> Explore job opportunities</div>
+      </div>
+    </div>
+   
+    <div class="job-alert-container">
+      <div style="color: red;"> **Job Alerts**</div>
+      <marquee behavior="" direction="up">
+        <div class="job-alert-container">
+          <div class="job-alert-scroll">
+            <div class="job-alert">
+              <p><strong>Vacancy:</strong> Software Developer</p>
+              <p><strong>Company:</strong> TechSolutions</p>
+              <p><strong>Location:</strong> New York, NY</p>
+              <a href="./more details/index.html" class="btn-more-details">More Details</a>
+            </div>
+            <div class="job-alert">
+              <p><strong>Vacancy:</strong> Frontend Engineer</p>
+              <p><strong>Company:</strong> WebWorks</p>
+              <p><strong>Location:</strong> San Francisco, CA</p>
+              <a href=" ./more details/index.html" class="btn-more-details">More Details</a>
+            </div>
+            <div class="job-alert">
+              <p><strong>Vacancy:</strong> Frontend Engineer</p>
+              <p><strong>Company:</strong> WebWorks</p>
+              <p><strong>Location:</strong> San Francisco, CA</p>
+              <a href="#job-details" class="btn-more-details">More Details</a>
+            </div>
+            <div class="job-alert">
+              <p><strong>Vacancy:</strong> Frontend Engineer</p>
+              <p><strong>Company:</strong> WebWorks</p>
+              <p><strong>Location:</strong> San Francisco, CA</p>
+              <a href="./more details/index.html" class="btn-more-details">More Details</a>
+            </div>
+          </div>
+        </div>
+      
+    
+    </marquee>
+  
+    </div>
+
+  </div>
+  <div class="social-icons">
+    <a href="https://www.whatsApp.com" title="WhatsApp">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp">
+      <div class="tooltip">WhatsApp</div>
+    </a>
+    <a href="https://www.linkedin.com" title="LinkedIn">
+      <img src="https://cdn-icons-png.flaticon.com/512/124/124011.png" alt="LinkedIn">
+      <div class="tooltip">LinkedIn</div>
+    </a>
+    <a href="https://www.instagram.com" title="Instagram">
+      <img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram">
+      <div class="tooltip">Instagram</div>
+    </a>
+    <a href="https://www.twitter.com" title="Twitter">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter">
+      <div class="tooltip">Twitter</div>
+    </a>
+  </div>
+  <div class="background" style="height: 35px;"></div>
+
+<section style="background-color: aliceblue;">
+  <div class="container8" style="    margin-left: -115px;">
+    <!-- Left Side: Poster Image -->
+    <div class="left-poster">
+      <img src="https://napervilleparks.org/upload/Misc%205/KM_2025CommJobFair_SavetheDate.jpg" alt="Job Mela Poster" />
+    </div>
+
+    <!-- Right Side: Job Mela Details -->
+    <div class="right-details">
+      <h2>Job Mela Highlights</h2>
+
+      <!-- Highlighted Content -->
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Venue: Sir C. R. Reddy Engineering College, Near Vatluru Railway Gate, Eluru
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Date & Time: 25th August 2025 (Friday) at 09:00 AM
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Eligibility: SSC/Inter/ITI/Diploma/Any Degree/B.Tech
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Salary: ₹11,000 to ₹30,000 per month
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Location: All over AP/TS Hyderabad
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Instructions: Candidates must attend in formal dress. Admit card of registration is mandatory to enter the Job Mela.
+        </div>
+      </div>
+
+      <div class="highlight-item">
+        <span class="icon">✔️</span>
+        <div class="content">
+          Contact Information: Shyam (8978524022), Satyanarayana (9666322032), Rama Krishna (9652503799)
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="popup">
+  New Slots Alert! 🎉<br>
+  <span>Check out the latest updates and <br>opportunities available now!</span>
+</div> 
+</section>
+
+
+
+
+
+<div class="background" style="height: 35px;"></div>
+<section class="working-process-section">
+  <div class="container">
+    <p class="section-subtitle">Working Process</p>
+    <h2 class="section-title">How Job Hub Works For You</h2>
+    <div class="working-process-cards">
+      <!-- Card 1 -->
+      <div class="working-process-card">
+        <img src="https://img.icons8.com/ios-filled/50/6c63ff/search.png" alt="Find Job" class="card-icon">
+        <h3 class="card-title">Find The Right Job</h3>
+        <!-- <p class="card-description">Discover opportunities tailored to your skills and interests.</p> -->
+      </div>
+      <!-- Card 2 -->
+      <div class="working-process-card">
+        <img src="https://img.icons8.com/ios-filled/50/6c63ff/organization.png" alt="Research Companies" class="card-icon">
+        <h3 class="card-title">Research Companies</h3>
+        <!-- <p class="card-description">Learn more about potential employers before applying.</p> -->
+      </div>
+      <!-- Card 3 -->
+      <div class="working-process-card">
+        <img src="https://img.icons8.com/ios-filled/50/6c63ff/money.png" alt="Compare Salaries" class="card-icon">
+        <h3 class="card-title">Compare Salaries</h3>
+        <!-- <p class="card-description">Evaluate salary packages to make the best decision.</p> -->
+      </div>
+      <!-- Card 4 -->
+      <div class="working-process-card">
+        <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Quick Apply" class="card-icon">
+        <h3 class="card-title">Quick Apply</h3>
+        <!-- <p class="card-description">Submit your application with ease and speed.</p> -->
+      </div>
+    </div>
+  </div>
+</section>
+<div class="background" style="height: 35px;"></div>
+<section style=" background-color: antiquewhite;">
+<div class="container1" >
+  <div class="left">
+      <img src="https://thumbs.dreamstime.com/b/many-business-people-gathering-office-building-uds-modern-conference-city-businessmen-businesswomen-communication-331305990.jpg" alt="National Career Service">
+      <img src="https://www.shutterstock.com/image-photo/happy-mid-aged-business-woman-600nw-2353012835.jpg" alt="Job Corner">
+      <img src="../career.jpg" alt="Career Events">
+      
+  </div>
+
+  <div class="middle">
+      <h1>Upcoming Job Mela: Connecting Youth with Opportunities</h1>
+      <p>We are excited to announce the upcoming <span class="highlight">Job Mela</span> (Job Fair) that will bring together job seekers and leading companies across various industries. This event is a great opportunity for freshers and experienced professionals to explore new career opportunities and connect with top employers.</p>
+
+      <ul>
+          <li><strong>Event Date:</strong> <span class="highlight">January 15, 2024</span></li>
+          <li><strong>Location:</strong> <span class="highlight">Andhra Pradesh Employment Exchange, Hyderabad</span></li>
+          <li><strong>Registration Deadline:</strong> <span class="highlight">January 10, 2024</span></li>
+          <li><strong>Industries Participating:</strong> IT, Manufacturing, Retail, Healthcare, and more.</li>
+          <li><strong>Free Entry:</strong> No registration fee required.</li>
+      </ul>
+
+      <p>Whether you're looking for your first job or seeking a career change, the <span class="highlight">Job Mela</span> will provide direct access to employers ready to hire. Don't miss out on this chance to kickstart or elevate your career!</p>
+
+      <p>For more details and to register, <a href="registration.html" class="read-more">click here to register now >></a></p>
+  </div>
+
+  <div class="right">
+      <div>
+          <img src="../person1.jpg" alt="Sri Kona Sasidhar, IAS">
+          <p><span>Sri Kona Sasidhar, IAS</span><br>Principal Secretary to Govt. of AP<br>Dept. of Skill Development & Training</p>
+      </div>
+      <div>
+          <img src="../PER2.jpg" alt="Sri G. Ganesh Kumar, IAS">
+          <p><span>Sri G. Ganesh Kumar, IAS</span><br>Director<br>Employment & Training (DE&T), GoAP</p>
+      </div>
+      <div>
+          <img src="../PER3.jpg" alt="Sri G. Ganesh Kumar, IAS">
+          <p><span>Sri G. Ganesh Kumar, IAS</span><br>Director<br>Employment & Training (DE&T), GoAP</p>
+      </div>
+  </div>
+</div>
+</section>
+
+<!-- <div class="background" style="height: 35px;"></div> -->
+
+
+
+
+
+
+
+
+
+<div class="background" style="height: 35px;"></div>
+<section class="browse-category-section">
+  <div class="container">
+    <p class="section-subtitle">Jobs Live Today</p>
+    <h2 class="section-title">Browse Category</h2>
+    <div class="content-wrapper">
+      <!-- Category Grid -->
+      <div class="category-grid">
+        <!-- Category Card 1 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="BPO" class="category-icon">
+          <h3 class="category-title">BPO - Business Process Outsourcing</h3>
+        </div>
+        <!-- Category Card 2 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Container Survey" class="category-icon">
+          <h3 class="category-title">Container Survey Services</h3>
+        </div>
+        <!-- Category Card 3 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Courier Service" class="category-icon">
+          <h3 class="category-title">Courier Service</h3>
+        </div>
+        <!-- Category Card 4 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Customs Broker" class="category-icon">
+          <h3 class="category-title">Customs Broker</h3>
+        </div>
+        <!-- Category Card 5 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Freight Forwarder" class="category-icon">
+          <h3 class="category-title">Freight Forwarder</h3>
+        </div>
+        <!-- Category Card 6 -->
+        <div class="category-card">
+          <img src="https://img.icons8.com/ios-filled/50/6c63ff/upload.png" alt="Importer Exporter" class="category-icon">
+          <h3 class="category-title">Importer / Exporter</h3>
+        </div>
+      </div>
+      <!-- Right-Side Slider -->
+      <div class="slider" style="    height: 302px;">
+        <div class="slider-content">
+          <img src="slider1.avif" alt="Ad 1" class="slider-image">
+          <img src="slider2.jpg" alt="Ad 2" class="slider-image">
+          <img src="slider3.avif" alt="Ad 3" class="slider-image">
+        </div>
+        <!-- Slider Controls -->
+        <div class="slider-controls">
+          <button class="prev-btn">❮</button>
+          <button class="next-btn">❯</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="background" style="height: 35px;"></div>
+<section class="recent-jobs">
+  <h2>RECENT JOBS</h2>
+  
+  <!-- Job Card 1 -->
+  <div class="job-card">
+    <div class="job-logo">
+      <img src="https://inextlogistics.com/wp-content/uploads/2023/06/updated-logo.png" alt="Company Logo">
+    </div>
+    <div class="job-details">
+      <h3>Inext Logistics & Supply Chain Private Limited.</h3>
+      <p>Customs Broker</p>
+      <p><strong>Position:</strong></p>
+      <p><strong>Experience:</strong> 1 To 2 Years</p>
+      <p><i class="fa fa-map-marker"></i> 253, A Wing, Balaji Bhavan, Belapur, Sector 11, CBD Belapur, Navi Mumbai, Maharashtra</p>
+      <p><i class="fa fa-money"></i> Salary: Salary As Per Experience, Caliber & Will Be Decided Only After Interview.</p>
+    </div>
+    <div class="job-actions" style="margin-top: 40px;">
+      <button class="view-btn"><a href="view.html" style="color: white;text-decoration: none;">View</a></button>
+      <p>Reference No: 563</p>
+    </div>
+  </div>
+  
+  <!-- Job Card 2 -->
+  <div class="job-card">
+    <div class="job-logo">
+      <img src="data:image/jpeg;base64,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" alt="Company Logo">
+    </div>
+    <div class="job-details">
+      <h3>Doff Logistics Pvt Ltd</h3>
+      <p>Customs Broker</p>
+      <p><strong>Position:</strong></p>
+      <p><strong>Experience:</strong> Minimum 1 To 2 Years</p>
+      <p><i class="fa fa-map-marker"></i> 504, Runwal R Square, LBS Marg, Vardhman Nagar, Mulund West, Mumbai, Maharashtra</p>
+      <p><i class="fa fa-money"></i> Salary: Salary As Per Experience, Caliber & Will Be Decided Only After Interview.</p>
+    </div>
+    <div class="job-actions" style="margin-top: 40px;">
+      <button class="view-btn"><a href="view.html" style="color: white;text-decoration: none;">View</a></button>
+      <p>Reference No: 562</p>
+    </div>
+  </div>
+
+  <!-- Job Card 3 -->
+  <div class="job-card">
+    <div class="job-logo">
+      <img src="data:image/jpeg;base64,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" alt="Company Logo">
+    </div>
+    <div class="job-details">
+      <h3>Global Shipping Solutions</h3>
+      <p>Freight Forwarder</p>
+      <p><strong>Position:</strong> Manager</p>
+      <p><strong>Experience:</strong> 3 To 5 Years</p>
+      <p><i class="fa fa-map-marker"></i> 120, Business Avenue, Andheri East, Mumbai, Maharashtra</p>
+      <p><i class="fa fa-money"></i> Salary: Negotiable</p>
+    </div>
+    <div class="job-actions" style="margin-top: 40px;">
+      <button class="view-btn"><a href="view.html" style="color: white;text-decoration: none;">View</a></button>
+      <p>Reference No: 561</p>
+    </div>
+  </div>
+
+  <!-- Job Card 4 -->
+  <div class="job-card">
+    <div class="job-logo">
+      <img src="data:image/png;base64,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" alt="Company Logo">
+    </div>
+    <div class="job-details">
+      <h3>Oceanic Logistics Pvt Ltd</h3>
+      <p>Operations Executive</p>
+      <p><strong>Position:</strong></p>
+      <p><strong>Experience:</strong> 2 To 4 Years</p>
+      <p><i class="fa fa-map-marker"></i> 78, Marine Drive, Colaba, Mumbai, Maharashtra</p>
+      <p><i class="fa fa-money"></i> Salary: Competitive</p>
+    </div>
+    <div class="job-actions" style="margin-top: 40px;">
+      <button class="view-btn"><a href="view.html" style="color: white;text-decoration: none;">View</a></button>
+      <p>Reference No: 560</p>
+    </div>
+  </div>
+
+  <!-- More Button -->
+  <div class="more-btn-container">
+    <button class="more-btn"><a href="more.html" style="text-decoration: none;">More</a></button>
+  </div>
+</section>
+
+<div class="background" style="height: 35px;"></div>
+<section class="top-companies-section">
+  <div class="container">
+    <h2 class="section-title">Top Companies Hiring</h2>
+    <div class="slider-wrapper">
+      <!-- Slider Content -->
+      <div class="company-slider">
+        <div class="company-card">
+          <img src="tcs.png" alt="Company 1" class="company-logo">
+          <!-- <h3 class="company-name">Company 1</h3> -->
+        </div>
+        <div class="company-card">
+          <img src="deloitee.png" alt="Company 2" class="company-logo">
+          <!-- <h3 class="company-name">Company 2</h3> -->
+        </div>
+        <div class="company-card">
+          <img src="fin.png" alt="Company 3" class="company-logo">
+          <!-- <h3 class="company-name">Company 3</h3> -->
+        </div>
+        <div class="company-card">
+          <img src="info.png" alt="Company 4" class="company-logo" style="    margin-top: -58px;">
+          <!-- <h3 class="company-name">Company 4</h3> -->
+        </div>
+        <!-- <div class="company-card">
+          <img src="ibm4.jpg" alt="Company 5" class="company-logo"> -->
+          <!-- <h3 class="company-name">Company 5</h3> -->
+        <!-- </div> -->
+      </div>
+      <!-- Slider Controls -->
+      <button class="prev-btn">❮</button>
+      <button class="next-btn">❯</button>
+    </div>
+  </div>
+</section>
+<div id="popup-container1">
+  <div id="popup-content1">
+    <p>Don't Miss the Chance!</p>
+    <button id="close-popup">Close</button>
+  </div>
+</div>
+
+
+<div class="background" style="height: 35px;"></div>
+<div class="section-container">
+  <h1 class="section-header">Take a look at our successful events from the past</h1>
+ 
+  <div class="image-gallery">
+      <div class="image-card">
+          <img src="jobmela1.jpg" alt="Job Mela Poster 2">
+          <div class="description">Job Mela 2023 - Bridging Careers</div>
+      </div>
+      <div class="image-card">
+          <img src="jobmela2.jpg" alt="Job Mela Poster 1">
+          <div class="description">Job Mela 2024 - Unlocking Opportunities</div>
+      </div>
+
+    
+
+      <div class="image-card">
+          <img src="jobmela3.jpg" alt="Job Mela Poster 3">
+          <div class="description">Job Mela 2024 - Empowering the Workforce</div>
+      </div>
+
+      <div class="image-card">
+          <img src="jobmela4.jpg" alt="Job Mela Poster 4">
+          <div class="description">Job Mela 2024 - Transforming Lives</div>
+      </div>
+  </div>
+</div>
+<div class="background" style="height: 35px;"></div>
+<footer style="background-color:darkslateblue;margin-top: -2px;color: #ecf0f1; font-family: Arial, sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between;">
+    <!-- Address Section -->
+    <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+      <h3 style="border-bottom: 2px solid #ecf0f1; padding-bottom: 10px;color: #ff8800;">Address</h3>
+      <p>"Delivering innovative IT services and tailored solutions to empower 
+        your business with cutting-edge technology and seamless digital transformation."</p>
+      <!-- <p>123 Career Drive</p> -->
+      <p>Hyderabad, Telangana, 500013</p>
+     
+    </div>
+
+    <!-- Navigation Links -->
+    <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+      <h3 style="border-bottom: 2px solid #ecf0f1; padding-bottom: 10px;color: #ff8800;">Navigation</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="index.html" style="color: #ecf0f1; text-decoration: none;">Home</a></li>
+        <li><a href="./About Us/index.html" style="color: #ecf0f1; text-decoration: none;">About</a></li>
+        <li><a href="./organisation/index.html" style="color: #ecf0f1; text-decoration: none;">Organisation</a></li>
+        <li><a href="./Events/event.html" style="color: #ecf0f1; text-decoration: none;">Events</a></li>
+        <li><a href="./contactus/index.html" style="color: #ecf0f1; text-decoration: none;">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <!-- Useful Links -->
+    <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+      <h3 style="border-bottom: 2px solid #ecf0f1; padding-bottom: 10px;color: #ff8800;">Useful Links</h3>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="./usefullinks/index.html" style="color: #ecf0f1; text-decoration: none;">UseFullinks</a></li>
+        <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Privacy Policy</a></li>
+        <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Terms of Service</a></li>
+        <li><a href="#" style="color: #ecf0f1; text-decoration: none;">FAQs</a></li>
+        <li><a href="#" style="color: #ecf0f1; text-decoration: none;">Support</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Media Links -->
+    <div style="flex: 1; min-width: 250px; margin-bottom: 20px;">
+      <h3 style="border-bottom: 2px solid #ecf0f1; padding-bottom: 10px;color: #ff8800;">Follow Us</h3>
+      <div>
+        <a href="https://www.facebook.com" style="margin-right: 10px;"><img src="https://img.icons8.com/ios-filled/30/ffffff/facebook--v1.png" alt="Facebook"></a>
+        <a href="https://www.twitter.com" style="margin-right: 10px;"><img src="https://img.icons8.com/ios-filled/30/ffffff/twitter.png" alt="Twitter"></a>
+        <a href="https://www.instagram.com" style="margin-right: 10px;"><img src="https://img.icons8.com/ios-filled/30/ffffff/instagram-new.png" alt="Instagram"></a>
+        <a href="https://www.linkedin.com" style="margin-right: 10px;"><img src="https://img.icons8.com/ios-filled/30/ffffff/linkedin.png" alt="LinkedIn"></a>
+      </div>
+      <p style="color: #ff8800;margin-top: 19px;">Email: <a href="mailto:contact@jobmela.com" style="color: #ecf0f1;">info@credencer.com</a></p>
+    </div>
+    
+  </div>
+
+  <div style="text-align: center; margin-top: 20px; border-top: 1px solid #ecf0f1; padding-top: 10px;">
+    <p>&copy; 2024 JobMela. All Rights Reserved By <a href="https://credencer.com" style="color: white;">Credencer Technologies</a></p>
+  </div>
+</footer>
+
+
+
+
+
+
+<script src="script.js"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const images = document.querySelectorAll(".slider-image");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+
+let currentIndex = 0;
+
+function showImage(index) {
+  images.forEach((img, i) => {
+    img.style.display = i === index ? "block" : "none";
+  });
+}
+
+prevBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+  showImage(currentIndex);
+});
+
+nextBtn.addEventListener("click", () => {
+  currentIndex = (currentIndex + 1) % images.length;
+  showImage(currentIndex);
+});
+
+// Initialize slider
+showImage(currentIndex);
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("popup-container1");
+  const closeBtn = document.getElementById("close-popup");
+
+  // Show popup after 2 seconds
+  setTimeout(() => {
+    popup.style.left = "0";
+  }, 2000);
+
+  // Close popup when the button is clicked
+  closeBtn.addEventListener("click", () => {
+    popup.style.left = "100%";
+  });
+});
+document.querySelectorAll('.image-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'scale(1.1)';
+            });
+
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'scale(1)';
+            });
+        });
+</script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credencer Technology</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8; 
+   
+   
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.header {
+    background-color: #2c3e50; /* Dark blue header */
+    padding: 40px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+}
+
+.header h1 {
+    font-size: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Main Content Layout */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    margin-top: 40px;
+}
+
+.about,
+.expertise,
+.technologies,
+.contact {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Titles */
+h2 {
+    font-size: 24px;
+    color: #2980b9; /* Blue color for section titles */
+    margin-bottom: 15px;
+}
+
+/* Expertise and Technologies List */
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    font-size: 18px;
+    color: #34495e; /* Dark grey color */
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+li::before {
+    content: "✔️";
+    margin-right: 10px;
+    color: #27ae60; /* Green color for the checkmark */
+}
+
+/* Contact Section */
+.contact p {
+    font-size: 18px;
+    color: #34495e;
+    margin: 10px 0;
+}
+
+.contact a {
+    color: #2980b9; /* Blue for links */
+    text-decoration: none;
+}
+
+.jobs {
+            margin-top: 20px;
+        }
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .job {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .job:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .job h4 {
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .job p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .apply-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-button:hover {
+            background-color: #45a049;
+        }
+
+
+
+
+/* Footer Styles */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: #2c3e50;
+    color: white;
+    border-radius: 8px;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr; /* Single column layout on small screens */
+    }
+
+    .header h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    li {
+        font-size: 16px;
+    }
+
+    .contact p {
+        font-size: 16px;
+    }
+}
+
+</style>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>About Credencer Technology</h1>
+        </header>
+        <main class="content">
+            <section class="about">
+                <p>Credencer Technology is a leading provider of innovative IT solutions and services. We specialize in web development, application development, and end-to-end technology solutions tailored to meet the unique needs of businesses.</p>
+            </section>
+
+            <section class="expertise">
+                <h2>Our Expertise:</h2>
+                <ul>
+                    <li>Website Development</li>
+                    <li>Application Development</li>
+                    <li>Full Stack Development</li>
+                    <li>Custom Software Solutions</li>
+                </ul>
+            </section>
+
+            <section class="technologies">
+                <h2>Technologies We Use:</h2>
+                <ul>
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Java</li>
+                    <li>React, Node.js</li>
+                    <li>Database Management Systems</li>
+                </ul>
+            </section>
+
+            <section class="contact">
+                <h2>Contact Us:</h2>
+                <p>Email: <a href="mailto:info@credencertech.com">info@credencer.com</a></p>
+                <p>Phone: +91 8125198336, 040 40178449</p>
+                <p>Address: 123 11-5-215/A, Red Hills, Lakdikapul, Hyderabad</p>
+            </section>
+        </main>
+
+        <div class="jobs">
+            <h2>Available Jobs</h2>
+            <div class="job-grid" id="job-list">
+                <!-- Jobs will be dynamically loaded here -->
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Credencer Technology</p>
+        </footer>
+    </div>
+
+
+      
+    <script>
+        const jobs = [
+            {
+                title: "Website Designer",
+                description: "Design and maintain modern, responsive websites.",
+                skills: ["HTML", "CSS", "JavaScript", "UI/UX Design"],
+                process: "Online assessment followed by an interview."
+            },
+            {
+                title: "Application Developer",
+                description: "Develop robust mobile and web applications.",
+                skills: ["Java", "React", "Node.js", "Backend Development"],
+                process: "Technical test followed by two rounds of interviews."
+            },
+            {
+                title: "Full Stack Developer",
+                description: "Work on both frontend and backend development.",
+                skills: ["HTML", "CSS", "JavaScript", "React", "Node.js"],
+                process: "Project assignment followed by an interview."
+            }
+        ];
+
+        function loadJobs() {
+            const jobList = document.getElementById("job-list");
+            jobs.forEach(job => {
+                const jobDiv = document.createElement("div");
+                jobDiv.classList.add("job");
+
+                jobDiv.innerHTML = `
+                    <h4>${job.title}</h4>
+                    <p>${job.description}</p>
+                    <p><strong>Skills Required:</strong> ${job.skills.join(", ")}</p>
+                    <p><strong>Interview Process:</strong> ${job.process}</p>
+                    <button class="apply-button">Apply Now</button>
+                `;
+
+                jobList.appendChild(jobDiv);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", loadJobs);
+    </script>
+</body>
+</html>

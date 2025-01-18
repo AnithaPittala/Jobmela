@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mega JobMela 2024</title>
+    <style>
+        /* Existing Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .poster-container {
+            border: 10px solid brown;
+            background-color: white;
+            /* color: white; */
+            max-width: 900px;
+            width: 100%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .header {
+            /* background-color: #BFECFF;  */
+            /* Header color */
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .header h1 {
+            color: crimson;
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .sub-header {
+            color: cadetblue;
+            margin-top: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .info {
+            /* background-color: #CDC1FF; */
+             /* Info color */
+             color: deeppink;
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        .highlight {
+            background-color: #212121;
+            color: #ffeb3b;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .companies {
+            background-color:lavenderblush; /* Companies section color */
+            margin: 20px 0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .companies h2 {
+            color: blueviolet;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .company-list {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .company {
+            background-color: lightblue;
+            color: white;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 5px;
+            width: 45%;
+            text-align: center;
+        }
+
+        .company h3 {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .slots {
+            font-size: 1rem;
+            color: #ffeb3b;
+        }
+
+        .cta {
+            /* background-color: #FFCCEA; */
+             /* Below section color */
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .cta button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .cta button:hover {
+            background-color: #b71c1c;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 90%;
+            text-align: left;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .modal-close {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            background: #b71c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="header">
+            <h1>Mega Job Mela 2024</h1>
+            <p class="sub-header">Nurses Jobs & Work From Home Jobs Available</p>
+        </div>
+
+        <div class="info">
+            <p><span class="highlight">Spot Offer Letter | 70 Companies</span></p>
+            <p>Date: <strong>26th November 2024, Tuesday</strong></p>
+            <p>Time: <strong>8 AM - 2 PM</strong></p>
+            <p>Venue: <strong>Khaja Mansion Function Hall, Masab Tank, Banjara Hills Road</strong></p>
+            <p>Qualification: 10th / ITI / Diploma / B.Tech / B.Pharm / M.Pharm / Any Graduation</p>
+            <p>Criteria: Fresher / Experienced (Male / Female)</p>
+        </div>
+
+        <div class="companies">
+            <h2>Participating Companies</h2>
+            <div class="company-list">
+                <div class="company" onclick="showDetails('Company A', 'B.Tech Graduates', 'Software Developer, Data Analyst', '₹5,00,000 - ₹8,00,000 per annum')">
+                    <h3>IT Jobs</h3>
+                    <p class="slots">Available Slots: 10</p>
+                </div>
+                <div class="company" onclick="showDetails('Company B', 'Graduates', 'Bank Teller, Loan Officer', '₹3,00,000 - ₹6,00,000 per annum')">
+                    <h3>Bank Jobs</h3>
+                    <p class="slots">Available Slots: 8</p>
+                </div>
+                <div class="company" onclick="showDetails('Company C', 'Graduates', 'Bank Teller, Loan Officer', '₹3,00,000 - ₹6,00,000 per annum')">
+                    <h3>Non IT</h3>
+                    <p class="slots">Available Slots: 9</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <button><a href="../registration.html" style="text-decoration: none;">Register Now</a></button>
+        </div>
+
+        <div class="footer">
+            <p>For more details, follow us on social media!</p>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="detailsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Company Details</h2>
+                <button class="modal-close" onclick="closeModal()">Close</button>
+            </div>
+            <p><strong>Eligibility:</strong> <span id="modalEligibility"></span></p>
+            <p><strong>Requirements:</strong> <span id="modalRequirements"></span></p>
+            <p><strong>Salary:</strong> <span id="modalSalary"></span></p>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(companyName, eligibility, requirements, salary) {
+            document.getElementById('modalTitle').textContent = companyName;
+            document.getElementById('modalEligibility').textContent = eligibility;
+            document.getElementById('modalRequirements').textContent = requirements;
+            document.getElementById('modalSalary').textContent = salary;
+            document.getElementById('detailsModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('detailsModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
